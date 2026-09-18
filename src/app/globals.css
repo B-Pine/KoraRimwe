@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand: Deep Green #1F6B4F / Soft Green #E8F5EE */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+
+    --primary: 158 55% 27%;
+    --primary-dark: 158 57% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 148 39% 94%;
+    --secondary-foreground: 158 57% 20%;
+
+    --surface: 210 17% 98%;
+    --muted: 210 17% 96%;
+    --muted-foreground: 215 14% 40%;
+
+    --accent: 148 39% 94%;
+    --accent-foreground: 158 57% 20%;
+
+    --destructive: 0 68% 42%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 36 92% 38%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 158 55% 27%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-foreground;
+  }
+
+  /* Visible, consistent focus ring for keyboard users */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  ::selection {
+    @apply bg-secondary text-secondary-foreground;
+  }
+}
+
+@layer components {
+  .prose-study {
+    @apply text-[15px] leading-7 text-foreground/90 sm:text-base sm:leading-8;
+  }
+  .prose-study p + p {
+    @apply mt-4;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
